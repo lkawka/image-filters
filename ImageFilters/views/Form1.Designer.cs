@@ -144,7 +144,8 @@
             "Sharpen",
             "Edge Detection",
             "Emboss",
-            "Median"});
+            "Median",
+            "Greyscale"});
             this.FiltersComboBox.Location = new System.Drawing.Point(8, 184);
             this.FiltersComboBox.Name = "FiltersComboBox";
             this.FiltersComboBox.Size = new System.Drawing.Size(154, 28);

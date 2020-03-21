@@ -19,7 +19,7 @@ namespace ImageFilters.filters
             {
                 for (int x = 0; x < Image.Width; x++)
                 {
-                    List<(int, int, int)> pixels = new List<(int, int, int)>();
+                    List<(int r, int g, int b)> pixels = new List<(int r, int g, int b)>();
                     if (x > 0 && y > 0)
                         pixels.Add(org.GetPixel(x - 1, y - 1));
                     if (x > 0)
@@ -37,18 +37,18 @@ namespace ImageFilters.filters
                     if (x < Image.Width - 1 && y < Image.Height - 1)
                         pixels.Add(org.GetPixel(x + 1, y + 1));
 
-                    pixels = pixels.OrderBy(p => (0.3 * p.Item1 + 0.6 * p.Item2 + 0.1 * p.Item3)).ToList();
+                    pixels = pixels.OrderBy(p => (0.3 * p.r + 0.6 * p.g + 0.1 * p.b)).ToList();
 
                     if (pixels.Count % 2 == 0)
                     {
                         var p1 = pixels[pixels.Count / 2 - 1];
                         var p2 = pixels[pixels.Count / 2];
-                        Image.SetPixel(x, y, (p1.Item1 + p2.Item1) / 2, (p1.Item2 + p2.Item2) / 2, (p1.Item3 + p2.Item3) / 2);
+                        Image.SetPixel(x, y, (p1.r + p2.r) / 2, (p1.g + p2.g) / 2, (p1.b + p2.b) / 2);
                     }
                     else
                     {
                         var p = pixels[pixels.Count / 2];
-                        Image.SetPixel(x, y, p.Item1, p.Item1, p.Item3);
+                        Image.SetPixel(x, y, p.r, p.g, p.b);
                     }
                 }
             }

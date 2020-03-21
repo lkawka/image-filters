@@ -91,6 +91,9 @@ namespace ImageFilters
                 case "Median":
                     filter = new MedianFilter(WorkingImage);
                     break;
+                case "Greyscale":
+                    filter = new GreyscaleFilter(WorkingImage);
+                    break;
                 default:
                     return;
             }

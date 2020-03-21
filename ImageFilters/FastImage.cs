@@ -47,6 +47,14 @@ namespace ImageFilters
             }
         }
 
+        public void SetAll(Func<(int r, int g, int b), (int, int, int)> func)
+        {
+            for (int i = 54; i < ByteImage.Length; i += 3)
+            {
+                (ByteImage[i], ByteImage[i + 1], ByteImage[i + 2]) = (ValueTuple<byte, byte, byte>)func((ByteImage[i], ByteImage[i + 1], ByteImage[i + 2]));
+            }
+        }
+
         public (int, int, int) GetPixel(int x, int y)
         {
             int idx = GetIndex(x, y);

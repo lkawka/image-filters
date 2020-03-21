@@ -8,3 +8,13 @@ C:\Users\lukkaw\Documents\ImageFilters\ImageFilters\obj\Debug\ImageFilters.cspro
 C:\Users\lukkaw\Documents\ImageFilters\ImageFilters\obj\Debug\ImageFilters.csproj.CoreCompileInputs.cache
 C:\Users\lukkaw\Documents\ImageFilters\ImageFilters\obj\Debug\ImageFilters.exe
 C:\Users\lukkaw\Documents\ImageFilters\ImageFilters\obj\Debug\ImageFilters.pdb
+C:\Users\lukkaw\Documents\image-filters\ImageFilters\bin\Debug\ImageFilters.exe.config
+C:\Users\lukkaw\Documents\image-filters\ImageFilters\bin\Debug\ImageFilters.exe
+C:\Users\lukkaw\Documents\image-filters\ImageFilters\bin\Debug\ImageFilters.pdb
+C:\Users\lukkaw\Documents\image-filters\ImageFilters\obj\Debug\ImageFilters.csprojAssemblyReference.cache
+C:\Users\lukkaw\Documents\image-filters\ImageFilters\obj\Debug\ImageFilters.Form1.resources
+C:\Users\lukkaw\Documents\image-filters\ImageFilters\obj\Debug\ImageFilters.Properties.Resources.resources
+C:\Users\lukkaw\Documents\image-filters\ImageFilters\obj\Debug\ImageFilters.csproj.GenerateResource.cache
+C:\Users\lukkaw\Documents\image-filters\ImageFilters\obj\Debug\ImageFilters.csproj.CoreCompileInputs.cache
+C:\Users\lukkaw\Documents\image-filters\ImageFilters\obj\Debug\ImageFilters.exe
+C:\Users\lukkaw\Documents\image-filters\ImageFilters\obj\Debug\ImageFilters.pdb
