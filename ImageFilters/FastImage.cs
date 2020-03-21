@@ -39,6 +39,14 @@ namespace ImageFilters
             }
         }
 
+        public IEnumerable<(int r, int g, int b)> GetAll()
+        {
+            for (int i = 56; i < ByteImage.Length; i += 3)
+            {
+                yield return (ByteImage[i-2], ByteImage[i -1], ByteImage[i]);
+            }
+        }
+
         public void SetAll(Func<int, int> func)
         {
             for (int i = 54; i < ByteImage.Length; i++)
@@ -49,9 +57,9 @@ namespace ImageFilters
 
         public void SetAll(Func<(int r, int g, int b), (int, int, int)> func)
         {
-            for (int i = 54; i < ByteImage.Length; i += 3)
+            for (int i = 56; i < ByteImage.Length; i += 3)
             {
-                (ByteImage[i], ByteImage[i + 1], ByteImage[i + 2]) = (ValueTuple<byte, byte, byte>)func((ByteImage[i], ByteImage[i + 1], ByteImage[i + 2]));
+                (ByteImage[i-2], ByteImage[i-1], ByteImage[i]) = (ValueTuple<byte, byte, byte>)func((ByteImage[i-2], ByteImage[i-1], ByteImage[i]));
             }
         }
 

@@ -94,6 +94,9 @@ namespace ImageFilters
                 case "Greyscale":
                     filter = new GreyscaleFilter(WorkingImage);
                     break;
+                case "Average Dithering":
+                    filter = new AverageDitheringFilter(WorkingImage);
+                    break;
                 default:
                     return;
             }
