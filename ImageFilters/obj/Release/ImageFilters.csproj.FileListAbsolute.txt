@@ -1,0 +1,10 @@
+C:\Users\lukkaw\Documents\ImageFilters\ImageFilters\bin\Release\ImageFilters.exe.config
+C:\Users\lukkaw\Documents\ImageFilters\ImageFilters\bin\Release\ImageFilters.exe
+C:\Users\lukkaw\Documents\ImageFilters\ImageFilters\bin\Release\ImageFilters.pdb
+C:\Users\lukkaw\Documents\ImageFilters\ImageFilters\obj\Release\ImageFilters.Form1.resources
+C:\Users\lukkaw\Documents\ImageFilters\ImageFilters\obj\Release\ImageFilters.FunctionalFilterForm.resources
+C:\Users\lukkaw\Documents\ImageFilters\ImageFilters\obj\Release\ImageFilters.Properties.Resources.resources
+C:\Users\lukkaw\Documents\ImageFilters\ImageFilters\obj\Release\ImageFilters.csproj.GenerateResource.cache
+C:\Users\lukkaw\Documents\ImageFilters\ImageFilters\obj\Release\ImageFilters.csproj.CoreCompileInputs.cache
+C:\Users\lukkaw\Documents\ImageFilters\ImageFilters\obj\Release\ImageFilters.exe
+C:\Users\lukkaw\Documents\ImageFilters\ImageFilters\obj\Release\ImageFilters.pdb
