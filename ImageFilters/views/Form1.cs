@@ -32,13 +32,18 @@ namespace ImageFilters
 
                 if (dlg.ShowDialog() == DialogResult.OK)
                 {
-                    OriginalImage = new FastImage(new Bitmap(dlg.FileName)); 
+                    OriginalImage = new FastImage(new Bitmap(dlg.FileName));
                     WorkingImage = new FastImage(OriginalImage);
                     pictureBox1.Image = WorkingImage.ToBitmap();
 
                     saveButton.Enabled = true;
                     restoreButton.Enabled = true;
                     FiltersComboBox.Enabled = true;
+
+                    rLevelsNumericUpDown.Enabled = true;
+                    gLevelsNumericUpDown.Enabled = true;
+                    bLevelsNumericUpDown.Enabled = true;
+                    applyDitheringButton.Enabled = true;
                 }
             }
         }
@@ -47,7 +52,7 @@ namespace ImageFilters
         {
             SaveFileDialog dialog = new SaveFileDialog();
             dialog.Title = "Save image";
-    
+
 
             if (dialog.ShowDialog() == DialogResult.OK)
             {
@@ -59,7 +64,7 @@ namespace ImageFilters
         private void ApplyFilterButton_Click(object sender, EventArgs e)
         {
             Filter filter;
-            switch(FiltersComboBox.SelectedItem)
+            switch (FiltersComboBox.SelectedItem)
             {
                 case "Inversion":
                     filter = new InversionFilter(WorkingImage);
@@ -94,15 +99,11 @@ namespace ImageFilters
                 case "Greyscale":
                     filter = new GreyscaleFilter(WorkingImage);
                     break;
-                case "Average Dithering":
-                    filter = new AverageDitheringFilter(WorkingImage);
-                    break;
                 default:
                     return;
             }
 
-            WorkingImage = filter.Apply();
-            pictureBox1.Image = WorkingImage.ToBitmap();
+            ApplyFilter(filter);
         }
 
         private void RestoreButton_Click(object sender, EventArgs e)
@@ -114,6 +115,18 @@ namespace ImageFilters
         private void FiltersComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             applyFilterButton.Enabled = true;
+        }
+
+        private void ApplyDitheringButton_Click(object sender, EventArgs e)
+        {
+            Filter filter = new AverageDitheringFilter(WorkingImage, (int)rLevelsNumericUpDown.Value, (int)gLevelsNumericUpDown.Value, (int)bLevelsNumericUpDown.Value);
+            ApplyFilter(filter);
+        }
+
+        private void ApplyFilter(Filter filter)
+        {
+            WorkingImage = filter.Apply();
+            pictureBox1.Image = WorkingImage.ToBitmap();
         }
     }
 }

@@ -43,7 +43,7 @@ namespace ImageFilters
         {
             for (int i = 56; i < ByteImage.Length; i += 3)
             {
-                yield return (ByteImage[i-2], ByteImage[i -1], ByteImage[i]);
+                yield return (ByteImage[i - 2], ByteImage[i - 1], ByteImage[i]);
             }
         }
 
@@ -59,7 +59,7 @@ namespace ImageFilters
         {
             for (int i = 56; i < ByteImage.Length; i += 3)
             {
-                (ByteImage[i-2], ByteImage[i-1], ByteImage[i]) = (ValueTuple<byte, byte, byte>)func((ByteImage[i-2], ByteImage[i-1], ByteImage[i]));
+                (ByteImage[i - 2], ByteImage[i - 1], ByteImage[i]) = (ValueTuple<byte, byte, byte>)func((ByteImage[i - 2], ByteImage[i - 1], ByteImage[i]));
             }
         }
 

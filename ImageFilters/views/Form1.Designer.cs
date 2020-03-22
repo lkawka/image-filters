@@ -35,11 +35,20 @@
             this.applyFilterButton = new System.Windows.Forms.Button();
             this.openImageButton = new System.Windows.Forms.Button();
             this.FiltersComboBox = new System.Windows.Forms.ComboBox();
+            this.applyDitheringButton = new System.Windows.Forms.Button();
+            this.rLevelsNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.gLevelsNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.bLevelsNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rLevelsNumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gLevelsNumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bLevelsNumericUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -55,6 +64,12 @@
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.label2);
+            this.splitContainer1.Panel2.Controls.Add(this.label1);
+            this.splitContainer1.Panel2.Controls.Add(this.bLevelsNumericUpDown);
+            this.splitContainer1.Panel2.Controls.Add(this.gLevelsNumericUpDown);
+            this.splitContainer1.Panel2.Controls.Add(this.rLevelsNumericUpDown);
+            this.splitContainer1.Panel2.Controls.Add(this.applyDitheringButton);
             this.splitContainer1.Panel2.Controls.Add(this.restoreButton);
             this.splitContainer1.Panel2.Controls.Add(this.saveButton);
             this.splitContainer1.Panel2.Controls.Add(this.applyFilterButton);
@@ -106,7 +121,7 @@
             this.applyFilterButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.applyFilterButton.Enabled = false;
-            this.applyFilterButton.Location = new System.Drawing.Point(8, 218);
+            this.applyFilterButton.Location = new System.Drawing.Point(8, 200);
             this.applyFilterButton.Name = "applyFilterButton";
             this.applyFilterButton.Size = new System.Drawing.Size(154, 36);
             this.applyFilterButton.TabIndex = 2;
@@ -145,13 +160,119 @@
             "Edge Detection",
             "Emboss",
             "Median",
-            "Greyscale",
-            "Average Dithering"});
-            this.FiltersComboBox.Location = new System.Drawing.Point(8, 184);
+            "Greyscale"});
+            this.FiltersComboBox.Location = new System.Drawing.Point(8, 166);
             this.FiltersComboBox.Name = "FiltersComboBox";
             this.FiltersComboBox.Size = new System.Drawing.Size(154, 28);
             this.FiltersComboBox.TabIndex = 0;
             this.FiltersComboBox.SelectedIndexChanged += new System.EventHandler(this.FiltersComboBox_SelectedIndexChanged);
+            // 
+            // applyDitheringButton
+            // 
+            this.applyDitheringButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.applyDitheringButton.Enabled = false;
+            this.applyDitheringButton.Location = new System.Drawing.Point(64, 271);
+            this.applyDitheringButton.Name = "applyDitheringButton";
+            this.applyDitheringButton.Size = new System.Drawing.Size(98, 90);
+            this.applyDitheringButton.TabIndex = 6;
+            this.applyDitheringButton.Text = "Apply Dithering ";
+            this.applyDitheringButton.UseVisualStyleBackColor = true;
+            this.applyDitheringButton.Click += new System.EventHandler(this.ApplyDitheringButton_Click);
+            // 
+            // rLevelsNumericUpDown
+            // 
+            this.rLevelsNumericUpDown.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.rLevelsNumericUpDown.Enabled = false;
+            this.rLevelsNumericUpDown.Location = new System.Drawing.Point(8, 271);
+            this.rLevelsNumericUpDown.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+            this.rLevelsNumericUpDown.Minimum = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            this.rLevelsNumericUpDown.Name = "rLevelsNumericUpDown";
+            this.rLevelsNumericUpDown.Size = new System.Drawing.Size(50, 26);
+            this.rLevelsNumericUpDown.TabIndex = 7;
+            this.rLevelsNumericUpDown.Value = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            // 
+            // gLevelsNumericUpDown
+            // 
+            this.gLevelsNumericUpDown.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.gLevelsNumericUpDown.Enabled = false;
+            this.gLevelsNumericUpDown.Location = new System.Drawing.Point(8, 303);
+            this.gLevelsNumericUpDown.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+            this.gLevelsNumericUpDown.Minimum = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            this.gLevelsNumericUpDown.Name = "gLevelsNumericUpDown";
+            this.gLevelsNumericUpDown.Size = new System.Drawing.Size(50, 26);
+            this.gLevelsNumericUpDown.TabIndex = 9;
+            this.gLevelsNumericUpDown.Value = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            // 
+            // bLevelsNumericUpDown
+            // 
+            this.bLevelsNumericUpDown.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.bLevelsNumericUpDown.Enabled = false;
+            this.bLevelsNumericUpDown.Location = new System.Drawing.Point(8, 335);
+            this.bLevelsNumericUpDown.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+            this.bLevelsNumericUpDown.Minimum = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            this.bLevelsNumericUpDown.Name = "bLevelsNumericUpDown";
+            this.bLevelsNumericUpDown.Size = new System.Drawing.Size(50, 26);
+            this.bLevelsNumericUpDown.TabIndex = 10;
+            this.bLevelsNumericUpDown.Value = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            // 
+            // label1
+            // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(38, 143);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(99, 20);
+            this.label1.TabIndex = 11;
+            this.label1.Text = "Simple filters";
+            // 
+            // label2
+            // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(49, 248);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(73, 20);
+            this.label2.TabIndex = 12;
+            this.label2.Text = "Dithering";
             // 
             // Form1
             // 
@@ -163,9 +284,13 @@
             this.Text = "Image Fitlers";
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
+            this.splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rLevelsNumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gLevelsNumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bLevelsNumericUpDown)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -179,6 +304,12 @@
         private System.Windows.Forms.Button applyFilterButton;
         private System.Windows.Forms.Button saveButton;
         private System.Windows.Forms.Button restoreButton;
+        private System.Windows.Forms.Button applyDitheringButton;
+        private System.Windows.Forms.NumericUpDown rLevelsNumericUpDown;
+        private System.Windows.Forms.NumericUpDown bLevelsNumericUpDown;
+        private System.Windows.Forms.NumericUpDown gLevelsNumericUpDown;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }
 
