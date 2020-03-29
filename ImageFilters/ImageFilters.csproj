@@ -60,6 +60,7 @@
     <Compile Include="filters\GreyscaleFilter.cs" />
     <Compile Include="filters\InversionFilter.cs" />
     <Compile Include="filters\MedianFilter.cs" />
+    <Compile Include="filters\OctreeColorQuantilizationFilter.cs" />
     <Compile Include="filters\SharpenFilter.cs" />
     <Compile Include="views\Form1.cs">
       <SubType>Form</SubType>
