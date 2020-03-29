@@ -23,6 +23,30 @@ namespace ImageFilters
             InitializeComponent();
         }
 
+        private void EnableWidgets()
+        {
+            saveButton.Enabled = true;
+            restoreButton.Enabled = true;
+            FiltersComboBox.Enabled = true;
+
+            rLevelsNumericUpDown.Enabled = true;
+            gLevelsNumericUpDown.Enabled = true;
+            bLevelsNumericUpDown.Enabled = true;
+            applyDitheringButton.Enabled = true;
+
+            quantilizationNumericUpDown.Enabled = true;
+            applyQuantilizationButton.Enabled = true;
+            int colorCount = WorkingImage.GetAll().Distinct().Count();
+            quantilizationNumericUpDown.Maximum = colorCount - 1;
+            quantilizationNumericUpDown.Value = (colorCount > 100 ? 100 : colorCount / 2);
+        }
+
+        private void ApplyFilter(Filter filter)
+        {
+            WorkingImage = filter.Apply();
+            pictureBox1.Image = WorkingImage.ToBitmap();
+        }
+
         private void OpenImageButton_Click(object sender, EventArgs e)
         {
             using (OpenFileDialog dlg = new OpenFileDialog())
@@ -36,14 +60,7 @@ namespace ImageFilters
                     WorkingImage = new FastImage(OriginalImage);
                     pictureBox1.Image = WorkingImage.ToBitmap();
 
-                    saveButton.Enabled = true;
-                    restoreButton.Enabled = true;
-                    FiltersComboBox.Enabled = true;
-
-                    rLevelsNumericUpDown.Enabled = true;
-                    gLevelsNumericUpDown.Enabled = true;
-                    bLevelsNumericUpDown.Enabled = true;
-                    applyDitheringButton.Enabled = true;
+                    EnableWidgets();
                 }
             }
         }
@@ -123,10 +140,10 @@ namespace ImageFilters
             ApplyFilter(filter);
         }
 
-        private void ApplyFilter(Filter filter)
+        private void ApplyQuantilizationButton_Click(object sender, EventArgs e)
         {
-            WorkingImage = filter.Apply();
-            pictureBox1.Image = WorkingImage.ToBitmap();
+            Filter filter = new OctreeColorQuantilizationFilter(WorkingImage, (int)quantilizationNumericUpDown.Value);
+            ApplyFilter(filter);
         }
     }
 }
