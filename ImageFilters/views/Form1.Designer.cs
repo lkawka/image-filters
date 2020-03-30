@@ -44,6 +44,7 @@
             this.applyFilterButton = new System.Windows.Forms.Button();
             this.openImageButton = new System.Windows.Forms.Button();
             this.FiltersComboBox = new System.Windows.Forms.ComboBox();
+            this.applyYcrcbDitheringButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -68,6 +69,7 @@
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.applyYcrcbDitheringButton);
             this.splitContainer1.Panel2.Controls.Add(this.applyQuantilizationButton);
             this.splitContainer1.Panel2.Controls.Add(this.quantilizationNumericUpDown);
             this.splitContainer1.Panel2.Controls.Add(this.label3);
@@ -138,11 +140,11 @@
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(49, 248);
+            this.label2.Location = new System.Drawing.Point(17, 248);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(73, 20);
+            this.label2.Size = new System.Drawing.Size(136, 20);
             this.label2.TabIndex = 12;
-            this.label2.Text = "Dithering";
+            this.label2.Text = "Average Dithering";
             // 
             // label1
             // 
@@ -235,9 +237,9 @@
             this.applyDitheringButton.Enabled = false;
             this.applyDitheringButton.Location = new System.Drawing.Point(42, 271);
             this.applyDitheringButton.Name = "applyDitheringButton";
-            this.applyDitheringButton.Size = new System.Drawing.Size(120, 90);
+            this.applyDitheringButton.Size = new System.Drawing.Size(120, 42);
             this.applyDitheringButton.TabIndex = 6;
-            this.applyDitheringButton.Text = "Apply Dithering ";
+            this.applyDitheringButton.Text = "Apply RGB";
             this.applyDitheringButton.UseVisualStyleBackColor = true;
             this.applyDitheringButton.Click += new System.EventHandler(this.ApplyDitheringButton_Click);
             // 
@@ -318,6 +320,18 @@
             this.FiltersComboBox.TabIndex = 0;
             this.FiltersComboBox.SelectedIndexChanged += new System.EventHandler(this.FiltersComboBox_SelectedIndexChanged);
             // 
+            // applyYcrcbDitheringButton
+            // 
+            this.applyYcrcbDitheringButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.applyYcrcbDitheringButton.Enabled = false;
+            this.applyYcrcbDitheringButton.Location = new System.Drawing.Point(42, 319);
+            this.applyYcrcbDitheringButton.Name = "applyYcrcbDitheringButton";
+            this.applyYcrcbDitheringButton.Size = new System.Drawing.Size(120, 42);
+            this.applyYcrcbDitheringButton.TabIndex = 16;
+            this.applyYcrcbDitheringButton.Text = "Apply Y\'CrCb";
+            this.applyYcrcbDitheringButton.UseVisualStyleBackColor = true;
+            this.applyYcrcbDitheringButton.Click += new System.EventHandler(this.ApplyYcrcbDitheringButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -358,6 +372,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button applyQuantilizationButton;
         private System.Windows.Forms.NumericUpDown quantilizationNumericUpDown;
+        private System.Windows.Forms.Button applyYcrcbDitheringButton;
     }
 }
 

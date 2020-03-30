@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="FastImage.cs" />
     <Compile Include="filters\AverageDitheringFilter.cs" />
+    <Compile Include="filters\AverageDitheringYCbCrFilter.cs" />
     <Compile Include="filters\BoxBlurFilter.cs" />
     <Compile Include="filters\BrightnessCorrectionFilter.cs" />
     <Compile Include="filters\ContrastEnhancementFilter.cs" />

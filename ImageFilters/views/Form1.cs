@@ -33,6 +33,7 @@ namespace ImageFilters
             gLevelsNumericUpDown.Enabled = true;
             bLevelsNumericUpDown.Enabled = true;
             applyDitheringButton.Enabled = true;
+            applyYcrcbDitheringButton.Enabled = true;
 
             quantilizationNumericUpDown.Enabled = true;
             applyQuantilizationButton.Enabled = true;
@@ -143,6 +144,12 @@ namespace ImageFilters
         private void ApplyQuantilizationButton_Click(object sender, EventArgs e)
         {
             Filter filter = new OctreeColorQuantilizationFilter(WorkingImage, (int)quantilizationNumericUpDown.Value);
+            ApplyFilter(filter);
+        }
+
+        private void ApplyYcrcbDitheringButton_Click(object sender, EventArgs e)
+        {
+            Filter filter = new AverageDitheringYCbCrFilter(WorkingImage, (int)rLevelsNumericUpDown.Value, (int)gLevelsNumericUpDown.Value, (int)bLevelsNumericUpDown.Value);
             ApplyFilter(filter);
         }
     }
