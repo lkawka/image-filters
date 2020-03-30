@@ -42,19 +42,23 @@ namespace ImageFilters.filters
             return 255;
         }
 
-        private List<int> GetDividingPoints(List<int> values, int k)
+        private List<int> GetDividingPoints(List<int> values, int k, int start = 0, int end = 255)
         {
-            var points = new List<int>();
-            if (k == 1 || values.Count < 2)
-                return points;
+            k = 1 << (k - 1);
+            List<int> dividingPoints = new List<int>();
 
-            int average = (int)values.Average();
+            double t = (end - start) / (k - 1);
+            for (double val = start; val < end; val += t)
+            {
+                var pointsInRange = values.Where(v => (v >= val && v < val + t)).ToList();
+                if (pointsInRange.Count > 0)
+                {
+                    dividingPoints.Add((int)pointsInRange.Average());
+                }
 
-            points.AddRange(GetDividingPoints(values.Where(v => v <= average).ToList(), k - 1));
-            points.Add(average);
-            points.AddRange(GetDividingPoints(values.Where(v => v > average).ToList(), k - 1));
+            }
 
-            return points;
+            return dividingPoints;
         }
     }
 }

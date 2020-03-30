@@ -19,9 +19,9 @@ namespace ImageFilters.filters
         {
             List<(int Y, int Cb, int Cr)> pxs = Image.GetAll().Select(px => ConvertToYCbCr(px)).ToList();
 
-            List<int> yPoints = GetDividingPoints(pxs.Select(px => px.Y).ToList(), ColorsCount.Y);
-            List<int> cbPoints = GetDividingPoints(pxs.Select(px => px.Cb).ToList(), ColorsCount.Cb);
-            List<int> crPoints = GetDividingPoints(pxs.Select(px => px.Cr).ToList(), ColorsCount.Cr);
+            List<int> yPoints = GetDividingPoints(pxs.Select(px => px.Y).ToList(), ColorsCount.Y, 16, 235);
+            List<int> cbPoints = GetDividingPoints(pxs.Select(px => px.Cb).ToList(), ColorsCount.Cb, 16, 240);
+            List<int> crPoints = GetDividingPoints(pxs.Select(px => px.Cr).ToList(), ColorsCount.Cr, 16, 240);
 
             Image.SetAll(px => ApplyDithering(px, yPoints, cbPoints, crPoints));
 
@@ -57,7 +57,7 @@ namespace ImageFilters.filters
 
         private int GetChannelValue(int org, List<int> points, int start = 0, int end = 255)
         {
-            double val = start, t = (start-end) / points.Count;
+            double val = start, t = (start - end) / points.Count;
             for (int i = 0; i < points.Count; i += 1)
             {
                 if (org <= points[i])
@@ -67,19 +67,23 @@ namespace ImageFilters.filters
             return end;
         }
 
-        private List<int> GetDividingPoints(List<int> values, int k)
+        private List<int> GetDividingPoints(List<int> values, int k, int start = 0, int end = 255)
         {
-            var points = new List<int>();
-            if (k == 1 || values.Count < 2)
-                return points;
+            k = 1 << (k - 1);
+            List<int> dividingPoints = new List<int>();
 
-            int average = (int)values.Average();
+            double t = (end - start) / (k - 1);
+            for (double val = start; val < end; val += t)
+            {
+                var pointsInRange = values.Where(v => (v >= val && v < val + t)).ToList();
+                if (pointsInRange.Count > 0)
+                {
+                    dividingPoints.Add((int)pointsInRange.Average());
+                }
 
-            points.AddRange(GetDividingPoints(values.Where(v => v <= average).ToList(), k - 1));
-            points.Add(average);
-            points.AddRange(GetDividingPoints(values.Where(v => v > average).ToList(), k - 1));
+            }
 
-            return points;
+            return dividingPoints;
         }
 
         private int Clip(int val, int min = 0, int max = 255)
